@@ -1,8 +1,4 @@
-import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
-import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { ClerkProvider } from "@clerk/clerk-expo";
 import { tokenCache } from "@clerk/clerk-expo/token-cache";
@@ -18,13 +14,12 @@ export default function RootLayout() {
   //   return null;
   // }
 
-const TypedClerkProvider = ClerkProvider as unknown as React.ComponentType<any>;
+  const TypedClerkProvider =
+    ClerkProvider as unknown as React.ComponentType<any>;
 
-return (
-  <TypedClerkProvider tokenCache={tokenCache}>
-    <Slot />
-  </TypedClerkProvider>
-);
-
-
+  return (
+    <TypedClerkProvider tokenCache={tokenCache}>
+      <Slot />
+    </TypedClerkProvider>
+  );
 }
